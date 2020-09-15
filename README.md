@@ -1,1 +1,3 @@
-# Szenario_Python_Monitoring
+# Szenario Python Monitoring
+
+Contributors Felix und Timo
