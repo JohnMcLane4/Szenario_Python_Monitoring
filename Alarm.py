@@ -45,10 +45,10 @@ def send_email(p_subject, p_body):
 # Überprüft ob CPU Soft-/Hardlimit überschritten wurde, gibt diese aus und ruft im Bedarfsfall "send_email" auf
 def check_cpu():
     print("CPU Usage: " + str(Monitoring.psutil.cpu_percent()) + "%")
-    if cpu_soft_limit <= Monitoring.psutil.cpu_percent() < cpu_hard_limit:
-        send_email("Monitoring Alarm: high values reached", "CPU utilization is at: " + str(Monitoring.psutil.cpu_percent()) + "%")
-    elif Monitoring.psutil.cpu_percent() >= cpu_hard_limit:
-        send_email("Monitoring Alarm: critical values reached", "CPU utilization is at: " + str(Monitoring.psutil.cpu_percent()) + "%")
+    if cpu_soft_limit <= Monitoring.psutil.cpu_percent(interval=0.1) < cpu_hard_limit:
+        send_email("Monitoring Alarm: high values reached", "CPU utilization is at: " + str(Monitoring.psutil.cpu_percent(interval=0.1)) + "%")
+    elif Monitoring.psutil.cpu_percent(interval=0.1) >= cpu_hard_limit:
+        send_email("Monitoring Alarm: critical values reached", "CPU utilization is at: " + str(Monitoring.psutil.cpu_percent(interval=0.1)) + "%")
 
 
 # Überprüft ob RAM Soft-/Hardlimit überschritten wurde, gibt diese aus und ruft im Bedarfsfall "send_email" auf
